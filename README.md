@@ -1,17 +1,14 @@
 <<<<<<< HEAD
 # Realtek RTL8812AU Driver
 
-## DKMS
-This driver can be installed using [DKMS](http://linux.dell.com/dkms/). This is a system which will automatically recompile and install a kernel module when a new kernel gets installed or updated. To make use of DKMS, install the `dkms` package, which on Debian (based) systems is done like this:
-```
-sudo apt install dkms
-```
+# rtl8812au-wifi-adapter
+The Linux wifi driver had to be searched on github for self-compile and install. This is for a wifi adapter that was bought on eBay with 5dB antenna and 802.11ac support. There was no such problem to use this on windows though.
 
-## Installation of Driver
-In order to install the driver open a terminal in the directory with the source code and execute the following command:
-```
+Simply run the below as root:
 sudo ./dkms-install.sh
-```
+
+If dkms not available, the script will automatically install a local .deb copy of dkms package.
+
 
 ## Removal of Driver
 In order to remove the driver from your system open a terminal in the directory with the source code and execute the following command:
@@ -29,8 +26,3 @@ at the end of file /etc/NetworkManager/NetworkManager.conf and restart NetworkMa
 ```
 sudo service NetworkManager restart
 ```
-
-=======
-# rtl8812au-wifi-adapter
-The Linux wifi driver had to be searched on github for self-compile and install. This is for a wifi adapter that was bought on eBay with 5dB antenna and 802.11ac support. There was no such problem to use this on windows though.
->>>>>>> 31eb514cf116ca7857f755c8a76b78b5ebbf6267
