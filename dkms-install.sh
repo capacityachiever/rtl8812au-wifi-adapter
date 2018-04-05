@@ -1,15 +1,16 @@
 #!/bin/bash
 
-cd rtl8812au
+filename="$(realpath $0)"
 
 if [[ $EUID -ne 0 ]]; then
-  echo "You must run this with superuser priviliges.  We will now try \"sudo ./dkms-install.sh\"" 2>&1
-  sudo bash -c "$0"
-  #exit 1
+  echo "You must run this with superuser priviliges.  Re-running with sudo. " 2>&1
+  sudo bash "$filename"
+  exit 1
 else
   echo "About to run dkms install steps..."
 fi
 
+cd rtl8812au
 # Harish: to install dkms if missing
 if [[ "$(command -v dkms)" == "" ]]; then
 sudo dpkg -i dkms*.deb
