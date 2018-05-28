@@ -41,7 +41,10 @@ fi
 # sudo service network-manager restart
 # sudo nmcli radio wifi off
 # WORKING:
-sudo modprobe 8812au
+if [[ "$(sudo modprobe 8812au | grep -i 'modprobe: ERROR:')" == "" ]]; then
+sudo bash dkms-remove.sh
+sudo bash "$filename"
+fi
 
 RESULT=$?
 
